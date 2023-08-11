@@ -8,7 +8,7 @@ function InputGroup({ value, onSetValue, label, id }) {
         {label}
       </label>
       <input
-        className="w-[100%] border border-solid border-[#76c0ae] bg-transparent p-2 text-base"
+        className="w-[100%] border border-solid rounded-[4px] border-[#76c0ae] bg-transparent p-2 text-base"
         type="number"
         id={id}
         value={value}
