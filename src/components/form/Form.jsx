@@ -55,7 +55,7 @@ function Form({ setYearlyData }) {
   return (
     <form
       onSubmit={submitHandler}
-      className="mx-auto my-8 max-w-[30rem] rounded-s bg-gradient-to-r from-[#307e6c] to-[#2b996d] p-4"
+      className="mx-auto my-8 max-w-[30rem] rounded-md bg-gradient-to-r from-[#307e6c] to-[#2b996d] p-4"
     >
       <div className="flex justify-evenly gap-6">
         <InputGroup
