@@ -10,7 +10,7 @@ function FormAction({ onReset }) {
       </button>
       <button
         type="submit"
-        className="font-customSerif cursor-pointer rounded-s bg-gradient-to-t from-[#1f584b] to-[#17493d] px-4 py-2 text-[#c2e9e0] hover:bg-gradient-to-r hover:from-[#1b5346] hover:to-[#113c32]"
+        className="font-customSerif cursor-pointer rounded-md bg-gradient-to-t from-[#1f584b] to-[#17493d] px-4 py-2 text-[#c2e9e0] hover:bg-gradient-to-r hover:from-[#1b5346] hover:to-[#113c32]"
       >
         Calculate
       </button>
