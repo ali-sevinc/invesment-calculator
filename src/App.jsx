@@ -1,22 +1,47 @@
 import { useState } from "react";
-
-import Table from "./components/table/Table";
-import Header from "./components/ui/Header";
-import Form from "./components/form/Form";
+import CalculatorForm from "./components/CalculatorForm";
+import TableHead from "./components/TableHead";
+import TableBody from "./components/TableBody";
+import Results from "./components/Results";
+import { calculateInvestmentResults } from "./util/investment";
 
 function App() {
-  const [yearlyData, setYearlyData] = useState([]);
+  const [values, setValues] = useState({
+    initialInvestment: 0,
+    annualInvestment: 0,
+    expectedReturn: 0,
+    duration: 0,
+  });
 
+  const { initialInvestment, annualInvestment, expectedReturn, duration } =
+    values;
+
+  const calculate =
+    initialInvestment > 0 &&
+    annualInvestment > 0 &&
+    expectedReturn > 0 &&
+    duration > 0;
+
+  function handleChange(name, amount) {
+    setValues((prev) => ({ ...prev, [name]: amount }));
+    // console.log(name, amount);
+  }
+  let data = [];
+  if (calculate) {
+    data = calculateInvestmentResults(values);
+  }
+  // console.log(data);
   return (
-    <div>
-      <Header />
-      <Form setYearlyData={setYearlyData} />
-      {yearlyData.length === 0 && (
-        <p className="text-center font-customSerif">No Calculation Yet</p>
+    <main>
+      <CalculatorForm values={values} onChange={handleChange} />
+      {calculate && (
+        <Results>
+          <TableHead />
+          <TableBody results={data} />
+        </Results>
       )}
-
-      {yearlyData.length > 0 && <Table yearlyData={yearlyData} />}
-    </div>
+      {!calculate && <p className="center">Have to fill all fields.</p>}
+    </main>
   );
 }
 
